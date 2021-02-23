@@ -1,0 +1,43 @@
+body {
+    background: url("/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bottom-line {
+    background: url("/potrawy1.png");
+    background-repeat: repeat-x;
+    height: 100px;
+    background-size: 350px;
+}
+
+.mz-add-size > div {
+    height: 20px;
+
+}
+
+.mz-black {
+    background-color: #000;
+    opacity: 0.6;
+    color: #fff;
+}
+
+.mz-red {
+    background-color: #C00000;
+    opacity: 0.8;
+    color: #fff;
+}
+
+.mz-icon {
+    height: 35px;
+    margin: 10px 10px 10px 0px;
+}
+
+.mz-links-white, .mz-links-white:hover, .mz-links-white:visited, .mz-links-white:link, .mz-links-white:active {
+    color: #535BFF;
+    text-decoration: none;
+}
+
+
