@@ -11,6 +11,7 @@ body {
     background-repeat: repeat-x;
     height: 100px;
     background-size: 350px;
+    z-index: -99999;
 }
 
 .mz-add-size > div {
@@ -30,13 +31,21 @@ body {
     color: #fff;
 }
 
+.mz-white {
+    background-color: #fff;
+    opacity: 0.6;
+    color: #fff;
+    min-height: 600px;
+    color: #000;
+}
+
 .mz-icon {
     height: 35px;
-    margin: 10px 10px 10px 0px;
+    margin: 0px 10px 0px 10px;
 }
 
 .mz-links-white, .mz-links-white:hover, .mz-links-white:visited, .mz-links-white:link, .mz-links-white:active {
-    color: #535BFF;
+    color: #fff;
     text-decoration: none;
 }
 

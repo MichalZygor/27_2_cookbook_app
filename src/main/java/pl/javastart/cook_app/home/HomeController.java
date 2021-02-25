@@ -15,4 +15,11 @@ public class HomeController {
 
         return "home";
     }
+
+    @GetMapping("/list")
+    public String list(){
+
+        return "list";
+    }
+
 }
