@@ -1,9 +1,9 @@
-package pl.javastart.cook_app.recipe;
+package pl.javastart.cookapp.recipe;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.javastart.cook_app.author.Author;
-import pl.javastart.cook_app.category.Category;
-import pl.javastart.cook_app.photo.Photo;
+import pl.javastart.cookapp.author.Author;
+import pl.javastart.cookapp.category.Category;
+import pl.javastart.cookapp.photo.Photo;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -18,6 +18,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private String description;
     private BigDecimal totalTimeMin;
     private String timeDefinition;
 
@@ -135,5 +136,13 @@ public class Recipe {
 
     public void setUpdateDate(LocalDate updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

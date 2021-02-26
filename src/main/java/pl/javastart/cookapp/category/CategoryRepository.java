@@ -1,4 +1,4 @@
-package pl.javastart.cook_app.category;
+package pl.javastart.cookapp.category;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

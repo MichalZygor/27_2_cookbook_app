@@ -1,7 +1,7 @@
-package pl.javastart.cook_app.category;
+package pl.javastart.cookapp.category;
 
-import pl.javastart.cook_app.photo.Photo;
-import pl.javastart.cook_app.recipe.Recipe;
+import pl.javastart.cookapp.photo.Photo;
+import pl.javastart.cookapp.recipe.Recipe;
 
 import javax.persistence.*;
 
@@ -17,7 +17,8 @@ public class Category {
     @ManyToOne
     private Recipe recipe;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    //@OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private Photo mainPhoto;
 
     public Long getId() {

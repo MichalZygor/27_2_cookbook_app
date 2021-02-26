@@ -1,10 +1,9 @@
-package pl.javastart.cook_app.photo;
+package pl.javastart.cookapp.photo;
 
-import pl.javastart.cook_app.category.Category;
-import pl.javastart.cook_app.recipe.Recipe;
+import pl.javastart.cookapp.category.Category;
+import pl.javastart.cookapp.recipe.Recipe;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Photo {

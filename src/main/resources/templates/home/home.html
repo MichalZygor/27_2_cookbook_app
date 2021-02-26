@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Książka kucharska</title>
@@ -16,8 +16,8 @@
         <div class="col-6">
         </div>
         <div class="col-6 text-end">
-            <a href="#"><img class="mz-icon" src="add.png"></a>
-            <a href="/settings"><img class="mz-icon" src="settings.png"></a>
+            <a href="#" title="dodaj nowy przepis" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img class="mz-icon" src="add.png"></a>
+            <a href="/settings" title="ustawienia"><img class="mz-icon" src="settings.png"></a>
         </div>
     </div>
 </div>
@@ -41,7 +41,7 @@
             </div>
             <div class="row border-top border-dark  h3 text-center fw-bolder  my-auto">
                 <div class="col my-2">
-                    <a href="/list" class="mz-links-white"><img class="mz-icon" src="list.png">Alfabetyczna lista</a>
+                    <a href="/recipe-list" class="mz-links-white"><img class="mz-icon" src="list.png">Alfabetyczna lista</a>
                 </div>
             </div>
         </div>
@@ -66,5 +66,28 @@
 </div>
 <div class="container-fluid mt-4 bottom-line fixed-bottom">
 </div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tworzenie przepisu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/recipe-add" method="post" th:object="${recipe}">
+                <div class="modal-body">
+                    <input class="form-control form-control-lg" type="text" placeholder="Tytuł przepisu" required
+                           th:field="*{title}" minlength="3">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>
+                    <button type="submit" class="btn btn-primary">Rozpocznij tworzenie przepisu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

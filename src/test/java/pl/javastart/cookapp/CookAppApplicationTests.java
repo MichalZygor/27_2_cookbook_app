@@ -1,4 +1,4 @@
-package pl.javastart.cook_app;
+package pl.javastart.cookapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

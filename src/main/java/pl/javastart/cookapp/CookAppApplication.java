@@ -1,4 +1,4 @@
-package pl.javastart.cook_app;
+package pl.javastart.cookapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

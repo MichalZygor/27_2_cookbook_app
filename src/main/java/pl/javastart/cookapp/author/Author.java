@@ -1,6 +1,6 @@
-package pl.javastart.cook_app.author;
+package pl.javastart.cookapp.author;
 
-import pl.javastart.cook_app.recipe.Recipe;
+import pl.javastart.cookapp.recipe.Recipe;
 
 import javax.persistence.*;
 import java.util.ArrayList;

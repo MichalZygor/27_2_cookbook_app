@@ -1,4 +1,4 @@
-package pl.javastart.cook_app.recipe;
+package pl.javastart.cookapp.recipe;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

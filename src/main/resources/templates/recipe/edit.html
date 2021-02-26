@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Książka kucharska - lista przepisów</title>
+    <title>Książka kucharska - edycja</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
@@ -41,62 +41,52 @@
         <div class="col-1"></div>
         <div class="col-10  mz-white rounded-3">
 
+            <h5>Edycja:</h5>
+            <form th:action="|/update|" method="post" th:object="${recipe}">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Tytuł:</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                </div>
+                Przepis:
+                <textarea th:field="*{description}"></textarea>
+                <div class="mb-3">
+                    <label for="totalTimeMin" class="form-label">Czas przygotowania w minutach:</label>
+                    <input type="text" class="form-control" id="totalTimeMin" th:field="*{totalTimeMin}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="timeDefinition" class="form-label">Defnicja czasu, inaczej składowe:</label>
+                    <input type="text" class="form-control" id="timeDefinition" th:field="*{timeDefinition}" required>
+                </div>
 
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>
-                        <a href="/list?sort=title|"
-                           th:href="|/list?sort=title|">
-                            Tytuł
-                        </a>
-                    </th>
-                    <th>
-                        <a href="/list?sort=total-time-min"
-                           th:href="|/list?sort=total-time-min|">
-                            Czas przyrządzenia
-                        </a>
-                    </th>
-                    <th>
-                        <a href="/list?sort=category"
-                           th:href="|/list?sort=category|">
-                            Kategoria
-                        </a>
-                    </th>
-                    <th>
-                        <a href="/list?sort=likes" th:href="|/list?sort=likes|">
-                            Lajki
-                        </a>
-                    </th>
-                    <th>
-                        <a href="/list?sort=likes" th:href="|/list?sort=likes|">
-                            Operacje
-                        </a>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="recipe: ${recipes}">
-                    <td th:text="${recipe.title}"></td>
-                    <td th:text="|${recipe.totalTimeMin} min|"></td>
-                    <td>
-                        <span th:each="category, iteration : ${recipe.category}"
-                              th:text="${!iteration.last ? category.name + ', ' : category.name}"></span>
+                category
+                <select multiple="multiple" th:field="*{category}">
 
-                    </td>
-                    <td>
-                        <span th:text="${recipe.likeCount}"></span>
-                        <a href="/like?type=like" title="usuń" th:href="|/like?type-like=like&id=${recipe.id}|"><img class="mz-icon-small" src="like.png"></a>
-                        <a href="/like?type=dislike" title="usuń" th:href="|/like?type-like=dislike&id=${recipe.id}|"><img class="mz-icon-small" src="dislike.png"></a>
-                        <span th:text="${recipe.dislikeCount}"></span>
-                    </td>
-                    <td>
-                        <a href="#" title="usuń"><img class="mz-icon-small" src="delete.png"></a>
-                        <a href="#" title="edytuj"><img class="mz-icon-small" src="edit.png"></a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+
+
+                </select>
+
+
+
+
+                mainPhotoId
+
+                <div class="mb-3">
+                    <label for="timeDefinition" class="form-label">Tytuł:</label>
+                    <input type="text" class="form-control" id="timeDefinition" th:field="*{timeDefinition}" required>
+                </div>
+
+            </form>
+
+            <!-- TEST -->
+            <form action="/test" method="post">
+
+                <input type="submit" name="sb" value="One">
+                <input type="submit" name="sb" value="Two">
+                <input type="submit" name="sb" value="Three">
+
+            </form>
+
 
 
         </div>
@@ -115,8 +105,8 @@
             </div>
             <form action="/add" method="post" th:object="${recipe}">
             <div class="modal-body">
-
-                    <input class="form-control form-control-lg" type="text" placeholder="Tytuł przepisu" th:field="*{title}">
+                    <input class="form-control form-control-lg" type="text" placeholder="Tytuł przepisu" required
+                           th:field="*{title}" minlength="3">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>

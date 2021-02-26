@@ -1,4 +1,4 @@
-package pl.javastart.cook_app.author;
+package pl.javastart.cookapp.author;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

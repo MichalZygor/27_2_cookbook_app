@@ -1,4 +1,4 @@
-package pl.javastart.cook_app.photo;
+package pl.javastart.cookapp.photo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

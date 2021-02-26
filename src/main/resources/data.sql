@@ -8,11 +8,11 @@ VALUES
 (6, 'Aleksandra', 'Czupała'),
 (7, 'Katarzyna', 'Mączka');
 
-INSERT INTO recipe(id, TITLE, TOTAL_TIME_MIN, TIME_DEFINITION, LIKE_COUNT, DISLIKE_COUNT, CREATE_DATE, UPDATE_DATE, MAIN_PHOTO_ID)
+INSERT INTO recipe(id, TITLE, DESCRIPTION, TOTAL_TIME_MIN, TIME_DEFINITION, LIKE_COUNT, DISLIKE_COUNT, CREATE_DATE, UPDATE_DATE, MAIN_PHOTO_ID)
 VALUES
-(1, 'Krążki cebulowe', 40, '30min + 20min', 10, 5, '2021-02-24', null, 3),
-(2, 'Podpłomyk', 50, '30min + 20min', 10, 5, '2021-02-24', null, 3),
-(3, 'Frytki z piekarnika', 52, '30min + 20min', 10, 5, '2021-02-24', null, 3);
+(1, 'Krążki cebulowe', 'lorem ipsum wspaniała sprawa z tymi przepsiadcz', 40, '30min + 20min', 10, 5, '2021-02-24', null, 3),
+(2, 'Podpłomyk','lorem ipsum wspaniała sprawa z tymi przepsiadcz', 50, '30min + 20min', 10, 5, '2021-02-24', null, 3),
+(3, 'Frytki z piekarnika','lorem ipsum wspaniała sprawa z tymi przepsiadcz', 52, '30min + 20min', 10, 5, '2021-02-24', null, 3);
 
 INSERT INTO photo(id, title,  file_name, RECIPE_ID )
 VALUES
