@@ -10,9 +10,9 @@ VALUES
 
 INSERT INTO recipe(id, TITLE, TOTAL_TIME_MIN, TIME_DEFINITION, LIKE_COUNT, DISLIKE_COUNT, CREATE_DATE, UPDATE_DATE, MAIN_PHOTO_ID)
 VALUES
-(1, 'Krążki cebulowe', 50, '30min + 20min', 10, 5, '2021-02-24', null, 3),
-(2, 'Krążki cebulowe', 50, '30min + 20min', 10, 5, '2021-02-24', null, 3),
-(3, 'Krążki cebulowe', 50, '30min + 20min', 10, 5, '2021-02-24', null, 3);
+(1, 'Krążki cebulowe', 40, '30min + 20min', 10, 5, '2021-02-24', null, 3),
+(2, 'Podpłomyk', 50, '30min + 20min', 10, 5, '2021-02-24', null, 3),
+(3, 'Frytki z piekarnika', 52, '30min + 20min', 10, 5, '2021-02-24', null, 3);
 
 INSERT INTO photo(id, title,  file_name, RECIPE_ID )
 VALUES

@@ -44,6 +44,11 @@ body {
     margin: 0px 10px 0px 10px;
 }
 
+.mz-icon-small{
+    height: 25px;
+    margin: 0 5px;
+}
+
 .mz-links-white, .mz-links-white:hover, .mz-links-white:visited, .mz-links-white:link, .mz-links-white:active {
     color: #fff;
     text-decoration: none;
