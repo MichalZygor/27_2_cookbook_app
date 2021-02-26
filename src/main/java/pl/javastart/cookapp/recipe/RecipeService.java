@@ -52,10 +52,18 @@ public class RecipeService {
         return recipeRepository.findById(id).orElseThrow();
     }
 
+    public void update(Recipe recipe) {
+        Recipe recipeFromDb = recipeRepository.findById(recipe.getId()).orElseThrow();
+        recipeFromDb.setDescription(recipe.getDescription());
+        recipeFromDb.setMainPhoto(recipe.getMainPhoto());
+        recipeFromDb.setTimeDefinition(recipe.getTimeDefinition());
+        recipeFromDb.setTitle(recipe.getTitle());
+        recipeFromDb.setTotalTimeMin(recipe.getTotalTimeMin());
+        recipeFromDb.setUpdateDate(LocalDate.now());
+        recipeRepository.save(recipeFromDb);
+    }
 
-
-
-//    public String toStringNames(List<Category> categories){
-//        return String.join(", ", (CharSequence) categories);
-//    }
+    public void deleteById(Long id) {
+        recipeRepository.deleteById(id);
+    }
 }

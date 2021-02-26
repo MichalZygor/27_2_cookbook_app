@@ -31,7 +31,8 @@ public class Recipe {
     //private Category category;
     private Long likeCount;
     private Long dislikeCount;
-    private Long mainPhotoId;
+    //private Long mainPhotoId;
+    private Long mainPhoto;
 
     @OneToMany(mappedBy = "recipe")
     private List<Photo> photos;
@@ -56,6 +57,14 @@ public class Recipe {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public BigDecimal getTotalTimeMin() {
@@ -106,12 +115,12 @@ public class Recipe {
         this.dislikeCount = dislikeCount;
     }
 
-    public Long getMainPhotoId() {
-        return mainPhotoId;
+    public Long getMainPhoto() {
+        return mainPhoto;
     }
 
-    public void setMainPhotoId(Long mainPhotoId) {
-        this.mainPhotoId = mainPhotoId;
+    public void setMainPhoto(Long mainPhoto) {
+        this.mainPhoto = mainPhoto;
     }
 
     public List<Photo> getPhotos() {
@@ -136,13 +145,5 @@ public class Recipe {
 
     public void setUpdateDate(LocalDate updateDate) {
         this.updateDate = updateDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

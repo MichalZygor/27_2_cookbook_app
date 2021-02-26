@@ -16,12 +16,13 @@
     <div class="row">
         <div class="col-6">
             <a href="/top" title="10 najlepszych"><img class="mz-icon" src="star.png"></a>
-            <a href="/list" title="lista"><img class="mz-icon" src="list.png"></a>
-            <a href="/by-category" title="lista wg. kategorii"><img class="mz-icon" src="category.png"></a>
+            <a href="/recipe-list" title="lista"><img class="mz-icon" src="list.png"></a>
+            <a href="/recipe-by-category" title="lista wg. kategorii"><img class="mz-icon" src="category.png"></a>
             <a href="/blind-shot" title="ślepy strzał"><img class="mz-icon" src="slepy1.png"></a>
         </div>
         <div class="col-6 text-end">
-            <a href="#" title="dodaj nowy przepis" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img class="mz-icon" src="add.png"></a>
+            <a href="#" title="dodaj nowy przepis" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img
+                    class="mz-icon" src="add.png"></a>
             <a href="/settings" title="ustawienia"><img class="mz-icon" src="settings.png"></a>
         </div>
     </div>
@@ -42,7 +43,7 @@
         <div class="col-10  mz-white rounded-3">
 
             <h5>Edycja:</h5>
-            <form th:action="|/update|" method="post" th:object="${recipe}">
+            <form th:action="|/recipe-update|" method="post" th:object="${recipe}">
                 <input type="hidden" th:field="*{id}">
                 <div class="mb-3">
                     <label for="title" class="form-label">Tytuł:</label>
@@ -61,7 +62,7 @@
 
                 category
                 <select multiple="multiple" th:field="*{category}">
-
+                    <option th:each="categoryIteration : ${allCategory}" th:text="${categoryIteration.name}" th:value="${categoryIteration.id}"></option>
 
 
                 </select>
@@ -70,11 +71,24 @@
 
 
                 mainPhotoId
+                <select multiple="multiple" th:field="*{photos}">
+                    <option th:each="photoIteration : ${allPhotos}" th:text="${photoIteration.title}" th:value="${photoIteration.id}"></option>
 
-                <div class="mb-3">
-                    <label for="timeDefinition" class="form-label">Tytuł:</label>
-                    <input type="text" class="form-control" id="timeDefinition" th:field="*{timeDefinition}" required>
-                </div>
+
+                </select>
+
+autor:<input type="submit" name="buttonFor" value="authorEdit">
+                <select multiple="multiple" th:field="*{authors}">
+                    <option th:each="authorIteration : ${allAuthors}" th:text="|${authorIteration.firstName} ${authorIteration.lastName}|" th:value="${authorIteration.id}"></option>
+
+
+                </select>
+
+
+
+                <a type="button" class="btn btn-secondary mb-3" th:href="|/|">Anulowanie i powrót do strony gównej</a>
+                <button type="submit" class="btn btn-success mb-3">Zapisz</button>
+
 
             </form>
 

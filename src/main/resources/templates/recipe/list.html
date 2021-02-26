@@ -18,7 +18,7 @@
         <div class="col-6">
             <a href="/top" title="10 najlepszych"><img class="mz-icon" src="star.png"></a>
             <a href="/recipe-list" title="lista"><img class="mz-icon" src="list.png"></a>
-            <a href="/by-category" title="lista wg. kategorii"><img class="mz-icon" src="category.png"></a>
+            <a href="/recipe-by-category" title="lista wg. kategorii"><img class="mz-icon" src="category.png"></a>
             <a href="/blind-shot" title="ślepy strzał"><img class="mz-icon" src="slepy1.png"></a>
         </div>
         <div class="col-6 text-end">
@@ -44,10 +44,10 @@
         <div class="col-10  mz-white rounded-3">
 
 
-            <table class="table">
-                <thead>
+            <table class="table table-hover table-striped">
+                <thead class="thead-dark">
                 <tr>
-                    <th>
+                    <th colspan="2">
                         <a href="/recipe-list?sort=title|"
                            th:href="|/recipe-list?sort=title|">
                             Tytuł
@@ -79,7 +79,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="recipe: ${recipes}">
-                    <td th:text="${recipe.title}"></td>
+                    <td>img_tbd</td>
+                    <td ><a th:text="${recipe.title}" th:href="|recipe-view?id=${recipe.id}|"></a></td>
                     <td th:text="|${recipe.totalTimeMin} min|"></td>
                     <td>
                         <span th:each="category, iteration : ${recipe.category}"
@@ -88,10 +89,10 @@
                     </td>
                     <td>
                         <span th:text="${recipe.likeCount}"></span>
-                        <a href="/like?type=like" title="lubie" th:href="|/like?type=like&id=${recipe.id}|"><img
+                        <a href="/recipe-like?type=like" title="lubie" th:href="|/recipe-like?type=like&id=${recipe.id}|"><img
                                 class="mz-icon-small" src="like.png"></a>
-                        <a href="/like?type=dislike" title="nie lubie"
-                           th:href="|/like?type=dislike&id=${recipe.id}|"><img class="mz-icon-small" src="dislike.png"></a>
+                        <a href="/recipe-like?type=dislike" title="nie lubie"
+                           th:href="|/recipe-like?type=dislike&id=${recipe.id}|"><img class="mz-icon-small" src="dislike.png"></a>
                         <span th:text="${recipe.dislikeCount}"></span>
                     </td>
                     <td>

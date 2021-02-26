@@ -16,6 +16,8 @@ public class Photo {
     @ManyToOne
     private Recipe recipe;
 
+//    @OneToOne(mappedBy = "mainPhoto")
+//    private Category category;
     @OneToOne(mappedBy = "mainPhoto")
     private Category category;
 
