@@ -50,7 +50,7 @@
             <span th:text="|${recipeView.totalTimeMin} min|"></span>
             <div th:text="|Składowe czasu: ${recipeView.timeDefinition}|"></div>
             <b>Przepis: </b>
-            <div th:text="${recipeView.description}"></div>
+            <div th:utext="${recipeView.description}"></div>
             <b>Galeria: </b> ... to do ...
             <div> <img height="80" width="100"> <img height="80" width="100"> <img height="80" width="100"></div>
 

@@ -18,6 +18,8 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
     private BigDecimal totalTimeMin;
     private String timeDefinition;
