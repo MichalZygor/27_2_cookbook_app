@@ -77,7 +77,7 @@
 
                 </select>
 
-autor:<input type="submit" name="buttonFor" value="authorEdit" class="btn btn-success mb-3">
+autor:<input type="submit" name="buttonFor" value="aEdit" class="btn btn-success mb-3">
 
                 <select multiple="multiple" th:field="*{authors}">
                     <option th:each="authorIteration : ${allAuthors}" th:text="|${authorIteration.firstName} ${authorIteration.lastName}|" th:value="${authorIteration.id}"></option>

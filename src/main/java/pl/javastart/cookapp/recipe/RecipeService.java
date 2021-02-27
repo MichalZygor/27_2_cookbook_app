@@ -67,4 +67,12 @@ public class RecipeService {
     public void deleteById(Long id) {
         recipeRepository.deleteById(id);
     }
+
+    public List<Recipe> findTop10() {
+        return recipeRepository.findTop10ByOrderByLikeCountDesc();
+    }
+
+    public List<Recipe> findRandomOne() {
+        return recipeRepository.findTopByOrderByRand();
+    }
 }

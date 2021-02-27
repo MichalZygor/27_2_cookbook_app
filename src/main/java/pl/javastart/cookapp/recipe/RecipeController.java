@@ -69,11 +69,10 @@ public class RecipeController {
         return "redirect:/recipe-list";
     }
 
-    @PostMapping("/recipe-update")   //powinno  być preAdd
+    @PostMapping("/recipe-update")
     public String recipeUpdate(Recipe recipe, Model model, @RequestParam(required = false) String buttonFor) {
-        //recipeService.addReceiptDefault(recipe);
         recipeService.update(recipe);
-        if (buttonFor.equals("authorEdit")) {
+        if (buttonFor.equals("aEdit")) {
             return "redirect:/author-list?receiptId=" + recipe.getId();
         } else {
             model.addAttribute("recipe", recipe);
@@ -95,9 +94,18 @@ public class RecipeController {
         model.addAttribute("recipeView", recipeService.findById(id));
         return "recipe/view";
     }
-    /* To-do START
-    * /recipe-by-category
-    * /blind-shot
-    * /top
-    * To-do END */
+
+    @GetMapping("/top")
+    public String listTop(Model model) {
+        model.addAttribute("recipes", recipeService.findTop10());
+        model.addAttribute("recipe", new Recipe());
+        return "recipe/list";
+    }
+
+    @GetMapping("/blind-shot")
+    public String listBlindShot(Model model) {
+        model.addAttribute("recipes", recipeService.findRandomOne());
+        model.addAttribute("recipe", new Recipe());
+        return "recipe/list";
+    }
 }
