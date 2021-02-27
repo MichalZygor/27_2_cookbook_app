@@ -56,7 +56,7 @@ public class RecipeService {
     public void update(Recipe recipe) {
         Recipe recipeFromDb = recipeRepository.findById(recipe.getId()).orElseThrow();
         recipeFromDb.setDescription(recipe.getDescription());
-        recipeFromDb.setMainPhoto(recipe.getMainPhoto());
+        recipeFromDb.setMainPhotoR(recipe.getMainPhotoR());
         recipeFromDb.setTimeDefinition(recipe.getTimeDefinition());
         recipeFromDb.setTitle(recipe.getTitle());
         recipeFromDb.setTotalTimeMin(recipe.getTotalTimeMin());

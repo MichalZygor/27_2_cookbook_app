@@ -34,7 +34,9 @@ public class Recipe {
     private Long likeCount;
     private Long dislikeCount;
     //private Long mainPhotoId;
-    private Long mainPhoto;
+
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private Photo mainPhotoR;
 
     @OneToMany(mappedBy = "recipe")
     private List<Photo> photos;
@@ -117,12 +119,12 @@ public class Recipe {
         this.dislikeCount = dislikeCount;
     }
 
-    public Long getMainPhoto() {
-        return mainPhoto;
+    public Photo getMainPhotoR() {
+        return mainPhotoR;
     }
 
-    public void setMainPhoto(Long mainPhoto) {
-        this.mainPhoto = mainPhoto;
+    public void setMainPhotoR(Photo mainPhotoR) {
+        this.mainPhotoR = mainPhotoR;
     }
 
     public List<Photo> getPhotos() {

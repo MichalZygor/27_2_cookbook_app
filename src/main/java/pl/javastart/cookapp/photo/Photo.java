@@ -21,6 +21,9 @@ public class Photo {
     @OneToOne(mappedBy = "mainPhoto")
     private Category category;
 
+    @OneToOne(mappedBy = "mainPhotoR")
+    private Recipe recipeR;
+
     public Long getId() {
         return id;
     }
@@ -43,5 +46,29 @@ public class Photo {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Recipe getRecipeR() {
+        return recipeR;
+    }
+
+    public void setRecipeR(Recipe recipeR) {
+        this.recipeR = recipeR;
     }
 }
