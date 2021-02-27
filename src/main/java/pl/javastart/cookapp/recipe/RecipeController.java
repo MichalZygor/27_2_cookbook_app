@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.javastart.cookapp.author.Author;
 import pl.javastart.cookapp.author.AuthorService;
+import pl.javastart.cookapp.category.Category;
 import pl.javastart.cookapp.category.CategoryRepository;
 import pl.javastart.cookapp.category.CategoryService;
+import pl.javastart.cookapp.photo.Photo;
 import pl.javastart.cookapp.photo.PhotoService;
 
 @Controller
@@ -45,6 +47,9 @@ public class RecipeController {
     public String recipeAdd(Recipe recipe, Model model) {
         recipeService.addReceiptDefault(recipe);
         model.addAttribute("recipe", recipe);
+        model.addAttribute("allCategory", categoryService.findAll());
+        model.addAttribute("allPhotos", photoService.findAll());
+        model.addAttribute("allAuthors", authorService.findAll());
         return "recipe/edit";
     }
 

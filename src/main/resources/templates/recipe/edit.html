@@ -77,7 +77,8 @@
 
                 </select>
 
-autor:<input type="submit" name="buttonFor" value="authorEdit">
+autor:<input type="submit" name="buttonFor" value="authorEdit" class="btn btn-success mb-3">
+
                 <select multiple="multiple" th:field="*{authors}">
                     <option th:each="authorIteration : ${allAuthors}" th:text="|${authorIteration.firstName} ${authorIteration.lastName}|" th:value="${authorIteration.id}"></option>
 
@@ -91,18 +92,6 @@ autor:<input type="submit" name="buttonFor" value="authorEdit">
 
 
             </form>
-
-            <!-- TEST -->
-            <form action="/test" method="post">
-
-                <input type="submit" name="sb" value="One">
-                <input type="submit" name="sb" value="Two">
-                <input type="submit" name="sb" value="Three">
-
-            </form>
-
-
-
         </div>
         <div class="col-1"></div>
     </div>
@@ -117,7 +106,7 @@ autor:<input type="submit" name="buttonFor" value="authorEdit">
                 <h5 class="modal-title" id="staticBackdropLabel">Tworzenie przepisu</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="/add" method="post" th:object="${recipe}">
+            <form action="/recipe-add" method="post" th:object="${recipe}">
             <div class="modal-body">
                     <input class="form-control form-control-lg" type="text" placeholder="Tytuł przepisu" required
                            th:field="*{title}" minlength="3">

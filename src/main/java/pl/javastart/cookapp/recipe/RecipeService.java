@@ -6,6 +6,7 @@ import pl.javastart.cookapp.author.AuthorService;
 import pl.javastart.cookapp.category.Category;
 import pl.javastart.cookapp.category.CategoryRepository;
 import pl.javastart.cookapp.category.CategoryService;
+import pl.javastart.cookapp.photo.Photo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
