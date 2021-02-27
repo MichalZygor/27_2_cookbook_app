@@ -70,7 +70,7 @@
                     </th>
                     <th>
                         <a href="/list?sort=total-time-min"
-                           th:href="|//author-list?sort=last-name|">
+                           th:href="|/author-list?sort=last-name|">
                             Nazwisko
                         </a>
                     </th>
@@ -85,7 +85,12 @@
                     <td th:text="|${author.lastName}|"></td>
                     <td>
                         <a href="#" title="usuń"><img class="mz-icon-small" src="delete.png"></a>
-                        <a href="#" title="edytuj"><img class="mz-icon-small" src="edit.png"></a>
+                        <span th:if="${!receiptId.isEmpty()}">
+                            <a href="/recipe-edit" th:href="|/author-edit?id=${author.id}&receiptId=${receiptId}|"><img class="mz-icon-small" src="edit.png"></a>
+                        </span>
+                        <span th:unless="${!receiptId.isEmpty()}">
+                            <a href="/recipe-edit" th:href="|/author-edit?id=${author.id}|"><img class="mz-icon-small" src="edit.png"></a>
+                        </span>
                     </td>
                 </tr>
                 </tbody>

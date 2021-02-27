@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.javastart.cookapp.recipe.Recipe;
 import pl.javastart.cookapp.recipe.RecipeRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,5 +23,16 @@ public class AuthorService {
 
     public void authorAdd(Author author) {
         authorRepository.save(author);
+    }
+
+    public Author findById(Long id) {
+        return authorRepository.findById(id).orElseThrow();
+    }
+
+    public void authorUpdate(Author author) {
+        Author authorFromDb = authorRepository.findById(author.getId()).orElseThrow();
+        authorFromDb.setFirstName(author.getFirstName());
+        authorFromDb.setLastName(author.getLastName());
+        authorRepository.save(authorFromDb);
     }
 }

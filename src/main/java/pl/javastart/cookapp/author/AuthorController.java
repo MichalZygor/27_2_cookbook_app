@@ -39,4 +39,21 @@ public class AuthorController {
 
         return "redirect:/author-list" + (!receiptId.isEmpty() ? "?receiptId=" + receiptId : "");
     }
+
+    @GetMapping("/author-edit")
+    public String authorEdit(Model model,
+                               @RequestParam(required = false, defaultValue = "") String receiptId,
+                               @RequestParam(required = true) Long id) {
+        model.addAttribute("author", authorService.findById(id));
+        model.addAttribute("receiptId", receiptId);
+        return "author/edit";
+    }
+
+    @PostMapping("/author-update")
+    public String authorUpdate(Author author, Model model,
+                            @RequestParam(required = false, defaultValue = "") String receiptId) {
+        authorService.authorUpdate(author);
+
+        return "redirect:/author-list" + (!receiptId.isEmpty() ? "?receiptId=" + receiptId : "");
+    }
 }
