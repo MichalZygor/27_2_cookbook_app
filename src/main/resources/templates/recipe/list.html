@@ -79,7 +79,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="recipe: ${recipes}">
-                    <td><img th:src="${recipe.photos}"> ... ToDo ... </td>
+                    <td><img th:src="|/tmp.png|" style="height: 50px"></td>
                     <td ><a th:text="${recipe.title}" th:href="|recipe-view?id=${recipe.id}|"></a></td>
                     <td th:text="|${recipe.totalTimeMin} min|"></td>
                     <td>
