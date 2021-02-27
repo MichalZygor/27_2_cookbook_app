@@ -1,0 +1,10 @@
+@todo problemy z relacjami --> Nie da się usunąć. Nie da się pobrać pojedynczego obrazka. Gdy dodam do bazy ID to wywala błąd
+@todo /recipe-delete --> Nie da się usunąć. Wywala błąd. Do rozwiązania
+@todo /author-list --> dodać usuwanie pozycji
+@todo /setting --> uruchomić i dodać bezpośredni dostęp do edycji autorów, kategprii, obrazków
+@todo /recipe-by-category --> trzeba przygptpwać lyot - ale najpierw trzeba rozwiązać problem z relacjami w bazie
+@todo Lajkowanie --> dla /top oraz /blind-shot po kliknieciu przekierowywuje do listy pełnej a ma wrócić do tej samej listy
+@todo Powrót do pozycji na przewiniętej stronie, np. lajkowanie, edycja --> wykorzystać znacznik #
+@todo Baza danych --> uzupełnić o lepsze dane
+@todo /recipe-view --> dodać wszystkie pola, np. autorów
+
