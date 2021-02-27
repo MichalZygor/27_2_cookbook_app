@@ -7,4 +7,5 @@
 @todo Powrót do pozycji na przewiniętej stronie, np. lajkowanie, edycja --> wykorzystać znacznik #
 @todo Baza danych --> uzupełnić o lepsze dane
 @todo /recipe-view --> dodać wszystkie pola, np. autorów
+@todo /recipe-list -> dodać sortowanie i paginację
 
