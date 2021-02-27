@@ -1,0 +1,57 @@
+body {
+    background: url("/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bottom-line {
+    background: url("/potrawy1.png");
+    background-repeat: repeat-x;
+    height: 100px;
+    background-size: 350px;
+    z-index: -99999;
+}
+
+.mz-add-size > div {
+    height: 20px;
+
+}
+
+.mz-black {
+    background-color: #000;
+    opacity: 0.6;
+    color: #fff;
+}
+
+.mz-red {
+    background-color: #C00000;
+    opacity: 0.8;
+    color: #fff;
+}
+
+.mz-white {
+    background-color: #fff;
+    opacity: 0.8;
+    color: #fff;
+    min-height: 600px;
+    color: #000;
+}
+
+.mz-icon {
+    height: 35px;
+    margin: 0px 10px 0px 10px;
+}
+
+.mz-icon-small{
+    height: 25px;
+    margin: 0 5px;
+}
+
+.mz-links-white, .mz-links-white:hover, .mz-links-white:visited, .mz-links-white:link, .mz-links-white:active {
+    color: #fff;
+    text-decoration: none;
+}
+
+

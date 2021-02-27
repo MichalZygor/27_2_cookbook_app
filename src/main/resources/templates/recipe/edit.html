@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Książka kucharska - edycja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+    <link href="internal.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-6">
+            <a href="/top" title="10 najlepszych"><img class="mz-icon" src="star.png"></a>
+            <a href="/recipe-list" title="lista"><img class="mz-icon" src="list.png"></a>
+            <a href="/recipe-by-category" title="lista wg. kategorii"><img class="mz-icon" src="category.png"></a>
+            <a href="/blind-shot" title="ślepy strzał"><img class="mz-icon" src="slepy1.png"></a>
+        </div>
+        <div class="col-6 text-end">
+            <a href="#" title="dodaj nowy przepis" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img
+                    class="mz-icon" src="add.png"></a>
+            <a href="/settings" title="ustawienia"><img class="mz-icon" src="settings.png"></a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-4 text-uppercase">
+    <div class="row">
+        <div class="col-12  mz-black">
+            <div class="text-center h1 my-2">
+                <a href="/" class="mz-links-white">Nasze rodzinne przepisy</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10  mz-white rounded-3">
+
+            <h5>Edycja:</h5>
+            <form th:action="|/recipe-update|" method="post" th:object="${recipe}">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Tytuł:</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}" required>
+                </div>
+                Przepis:
+                <textarea th:field="*{description}"></textarea>
+                <div class="mb-3">
+                    <label for="totalTimeMin" class="form-label">Czas przygotowania w minutach:</label>
+                    <input type="text" class="form-control" id="totalTimeMin" th:field="*{totalTimeMin}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="timeDefinition" class="form-label">Defnicja czasu, inaczej składowe:</label>
+                    <input type="text" class="form-control" id="timeDefinition" th:field="*{timeDefinition}" required>
+                </div>
+
+                category
+                <select multiple="multiple" th:field="*{category}">
+                    <option th:each="categoryIteration : ${allCategory}" th:text="${categoryIteration.name}" th:value="${categoryIteration.id}"></option>
+
+
+                </select>
+
+
+
+
+                mainPhotoId
+                <select multiple="multiple" th:field="*{photos}">
+                    <option th:each="photoIteration : ${allPhotos}" th:text="${photoIteration.title}" th:value="${photoIteration.id}"></option>
+
+
+                </select>
+
+autor:<input type="submit" name="buttonFor" value="aEdit" class="btn btn-success mb-3">
+
+                <select multiple="multiple" th:field="*{authors}">
+                    <option th:each="authorIteration : ${allAuthors}" th:text="|${authorIteration.firstName} ${authorIteration.lastName}|" th:value="${authorIteration.id}"></option>
+
+
+                </select>
+
+
+
+                <a type="button" class="btn btn-secondary mb-3" th:href="|/|">Anulowanie i powrót do strony gównej</a>
+                <button type="submit" class="btn btn-success mb-3">Zapisz</button>
+
+
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+<div class="container-fluid mt-4 bottom-line fixed-bottom"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tworzenie przepisu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/recipe-add" method="post" th:object="${recipe}">
+            <div class="modal-body">
+                    <input class="form-control form-control-lg" type="text" placeholder="Tytuł przepisu" required
+                           th:field="*{title}" minlength="3">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>
+                <button type="submit" class="btn btn-primary">Rozpocznij tworzenie przepisu</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
